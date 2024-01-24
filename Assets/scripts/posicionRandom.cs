@@ -25,21 +25,17 @@ public class posicionRandom : MonoBehaviour
     {
         for (float x = negativePosition.x; x < positivePosition.x; x += distanceBetweenCheck)
         {
-            for(float z = negativePosition.y; z < positivePosition.y; z += distanceBetweenCheck)
+            for (float z = negativePosition.y; z < positivePosition.y; z += distanceBetweenCheck)
             {
                 RaycastHit hit;
-                if(Physics.Raycast(new Vector3(x, heightOfCheck,z),Vector3.down, out hit, rangeOfCheck, layerMask))
+                if (Physics.Raycast(new Vector3(x, heightOfCheck, z), Vector3.down, out hit, rangeOfCheck, layerMask))
                 {
-                    if(SpawnChance > Random.Range(0, 101)) 
+                    if (SpawnChance > Random.Range(0, 101))
                     {
-                        Instantiate(prefab, hit.point, Quaternion.Euler(new Vector3(0, Random.Range(0,360), 0)), transform);   
+                        Instantiate(prefab, hit.point, Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)), transform);
                     }
                 }
             }
         }
-    }
-    void Update()
-    {
-        
     }
 }
