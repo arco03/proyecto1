@@ -8,6 +8,7 @@ public class posicionRandom : MonoBehaviour
     [Header("Spawn Settings")]
     public GameObject prefab;
     public float SpawnChance;
+    private Vector3 spawnPosition;
 
     [Header("Raycast Settings")]
     public float distanceBetweenCheck;
@@ -23,6 +24,7 @@ public class posicionRandom : MonoBehaviour
 
     void SpawnResources()
     {
+
         for (float x = negativePosition.x; x < positivePosition.x; x += distanceBetweenCheck)
         {
             for (float z = negativePosition.y; z < positivePosition.y; z += distanceBetweenCheck)
@@ -33,6 +35,13 @@ public class posicionRandom : MonoBehaviour
                     if (SpawnChance > Random.Range(0, 101))
                     {
                         Instantiate(prefab, hit.point, Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)), transform);
+
+                        //if (SpawnChance > Random.Range(0, 101))
+                        //{
+                            // Instanciar el objeto a una altura inicial mayor.
+                           // GameObject newObject = Instantiate(prefab, spawnPosition, Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)), transform);
+                          //  newObject.AddComponent<objetoCayendo>();
+                       // }
                     }
                 }
             }
